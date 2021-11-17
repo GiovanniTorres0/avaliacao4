@@ -1,7 +1,6 @@
 package br.com.api.modelo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,17 +16,16 @@ public class Associado {
 	private Long id;
 	private String nome;
 	private String cargo;
-	private String data_nascimento;
+	private LocalDate data_nascimento;
 	private String sexo;
 	@ManyToOne
 	private Partido partido;
-	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");	
-	
+
 	public Associado() {
 
 	}
 
-	public Associado(String nome, String cargo, String data_nascimento, String sexo, Partido partido) {
+	public Associado(String nome, String cargo, LocalDate data_nascimento, String sexo, Partido partido) {
 		this.nome = nome;
 		this.cargo = cargo;
 		this.data_nascimento = data_nascimento;
@@ -47,12 +45,12 @@ public class Associado {
 		this.cargo = cargo;
 	}
 
-	public String getData_nascimento() {
+	public LocalDate getData_nascimento() {
 		return data_nascimento;
 	}
 
-	public void setData_nascimento(String data_nascimento) {
-		data_nascimento = df.format(data_nascimento);
+	public void setData_nascimento(LocalDate data_nascimento) {
+
 		this.data_nascimento = data_nascimento;
 	}
 

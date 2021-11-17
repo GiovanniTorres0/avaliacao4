@@ -1,5 +1,6 @@
 package br.com.api.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,7 @@ public class AssociadoDto {
 	private Long id;
 	private String nome;
 	private String cargo;
-	private String data_nascimento;
+	private LocalDate data_nascimento;
 	private String sexo;
 	private String nomePartido;
 
@@ -49,7 +50,7 @@ public class AssociadoDto {
 		return cargo;
 	}
 
-	public String getData_nascimento() {
+	public LocalDate getData_nascimento() {
 		return data_nascimento;
 	}
 

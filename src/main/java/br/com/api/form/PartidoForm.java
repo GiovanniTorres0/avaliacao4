@@ -1,7 +1,6 @@
 package br.com.api.form;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -11,14 +10,6 @@ import br.com.api.modelo.Partido;
 
 public class PartidoForm {
 
-	public PartidoForm(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String sigla, @NotNull String data_fundacao,
-			@NotNull Ideologia ideologia) {
-		this.nome = nome;
-		this.sigla = sigla;
-		this.data_fundacao = data_fundacao;
-		this.ideologia = ideologia;
-	}
-
 	@NotNull
 	@NotEmpty
 	private String nome;
@@ -26,10 +17,9 @@ public class PartidoForm {
 	@NotEmpty
 	private String sigla;
 	@NotNull
-	private String data_fundacao;
+	private LocalDate data_fundacao;
 	@NotNull
 	private Ideologia ideologia;
-	DateFormat df = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 
 	public String getNome() {
 		return nome;
@@ -39,24 +29,23 @@ public class PartidoForm {
 		return sigla;
 	}
 
-	public @NotNull String getData_fundacao() {
+	public  LocalDate getData_fundacao() {
 		return data_fundacao;
 	}
 
-	public void setData_fundacao(@NotNull String data_fundacao) {
-		data_fundacao = df.format(data_fundacao);
+	public void setData_fundacao(LocalDate data_fundacao) {
 		this.data_fundacao = data_fundacao;
 	}
 
-	public void setNome(@NotNull String nome) {
+	public void setNome( String nome) {
 		this.nome = nome;
 	}
 
-	public void setSigla(@NotNull String sigla) {
+	public void setSigla( String sigla) {
 		this.sigla = sigla;
 	}
 
-	public @NotNull Ideologia getIdeologia() {
+	public  Ideologia getIdeologia() {
 		return ideologia;
 	}
 

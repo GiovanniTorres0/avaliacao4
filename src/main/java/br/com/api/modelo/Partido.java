@@ -1,7 +1,6 @@
 package br.com.api.modelo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,16 +17,16 @@ public class Partido {
 	private Long id;
 	private String nome;
 	private String sigla;
-	private String data_fundacao;
+	private LocalDate data_fundacao;
 	@Enumerated(EnumType.STRING)
 	private Ideologia ideologia = Ideologia.Centro;
-	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");	
+	
 
 	public Partido() {
 
 	}
 
-	public Partido(String nome, String sigla, Ideologia ideologia, String data_fundacao) {
+	public Partido(String nome, String sigla, Ideologia ideologia, LocalDate data_fundacao) {
 		this.nome = nome;
 		this.sigla = sigla;
 		this.ideologia = ideologia;
@@ -50,12 +49,11 @@ public class Partido {
 		this.sigla = sigla;
 	}
 
-	public String getData_fundacao() {
+	public LocalDate getData_fundacao() {
 		return data_fundacao;
 	}
 
-	public void setData_fundacao(String data_fundacao) {
-		data_fundacao = df.format(data_fundacao);
+	public void setData_fundacao(LocalDate data_fundacao) {
 		this.data_fundacao = data_fundacao;
 	}
 

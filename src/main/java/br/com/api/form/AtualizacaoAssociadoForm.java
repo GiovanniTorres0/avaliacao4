@@ -1,5 +1,7 @@
 package br.com.api.form;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +17,7 @@ public class AtualizacaoAssociadoForm {
 	@NotEmpty
 	private String cargo;
 	@NotNull
-	private String data_nascimento;
+	private LocalDate data_nascimento;
 	@NotNull
 	@NotEmpty
 	private String sexo;
@@ -38,11 +40,11 @@ public class AtualizacaoAssociadoForm {
 		this.cargo = cargo;
 	}
 
-	public @NotNull String getData_nascimento() {
+	public @NotNull LocalDate getData_nascimento() {
 		return data_nascimento;
 	}
 
-	public void setData_nascimento(@NotNull String data_nascimento) {
+	public void setData_nascimento(@NotNull LocalDate data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 

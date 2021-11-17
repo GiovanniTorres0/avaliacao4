@@ -1,7 +1,6 @@
 package br.com.api.form;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -18,16 +17,6 @@ public class AssociadoForm {
 	private MethodArgumentNotValidException exception;
 	private ErroDeValidacaoHandler ev = new ErroDeValidacaoHandler();
 
-	public AssociadoForm(@NotNull @NotEmpty String nome, @NotNull @NotEmpty String cargo,
-			@NotNull String data_nascimento, @NotNull @NotEmpty String sexo, @NotNull @NotEmpty String nomePartido) {
-
-		this.nome = nome;
-		this.cargo = cargo;
-		this.data_nascimento = data_nascimento;
-		this.sexo = sexo;
-		this.nomePartido = nomePartido;
-	}
-
 	@NotNull
 	@NotEmpty
 	private String nome;
@@ -35,20 +24,19 @@ public class AssociadoForm {
 	@NotEmpty
 	private String cargo;
 	@NotNull
-	private String data_nascimento;
+	private LocalDate data_nascimento;
 	@NotNull
 	@NotEmpty
 	private String sexo;
 	@NotNull
 	@NotEmpty
 	private String nomePartido;
-	DateFormat df = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm");
 
 	public String getNome() {
 		return nome;
 	}
 
-	public String setCargo(@NotNull String cargo) {
+	public String setCargo(String cargo) {
 		switch (cargo) {
 		case ("vereador"):
 			cargo = "Vereador";
@@ -98,16 +86,16 @@ public class AssociadoForm {
 		return this.cargo = cargo;
 	}
 
-	public @NotNull String getData_nascimento() {
+	public LocalDate getData_nascimento() {
+
 		return data_nascimento;
 	}
 
-	public void setData_nascimento(@NotNull String data_nascimento) {
-		data_nascimento = df.format(data_nascimento);
+	public void setData_nascimento(LocalDate data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 
-	public String setSexo(@NotNull String sexo) {
+	public String setSexo(String sexo) {
 		switch (sexo) {
 		case ("masculino"):
 			sexo = "Masculino";
@@ -126,7 +114,7 @@ public class AssociadoForm {
 		return this.sexo = sexo;
 	}
 
-	public @NotNull String getNomePartido() {
+	public String getNomePartido() {
 		return nomePartido;
 	}
 

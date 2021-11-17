@@ -1,5 +1,6 @@
 package br.com.api.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class PartidoDto {
 	private String nome;
 	private String sigla;
 	private Ideologia ideologia;
-	private String data_fundacao;
+	private LocalDate data_fundacao;
 
 	public PartidoDto(Partido partido) {
 		this.id = partido.getId();
@@ -38,7 +39,7 @@ public class PartidoDto {
 		return ideologia;
 	}
 
-	public String getData_fundacao() {
+	public LocalDate getData_fundacao() {
 		return data_fundacao;
 	}
 
